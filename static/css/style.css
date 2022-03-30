@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-padding {
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+
+.searchForm {
+  position: relative;
+  width: 300px;
+}
+
+.searchForm input {
+  min-width: 100%;
+  border-radius: 50px;
+}
+
+.searchForm button {
+  right: 10px;
+  position: absolute;
+}
+
+.banner-product .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner-product .card {
+  margin-top: 25px;
+  overflow: hidden !important;
+}
+
+.banner-product .prodImg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  min-height: 500px;
+}
+
+.banner-product h5 {
+  z-index: 2;
+  color: white;
+  text-align: center;
+  top: 20px;
+  left: 0;right: 0;
+  position: absolute;
+}
+.banner-product .prod1 {
+  background-image: url(../img/home-programs-img1.webp);
+}.banner-product .prod2 {
+  background-image: url(../img/home-programs-img2.webp);
+}.banner-product .prod3 {
+  background-image: url(../img/home-programs-img3.webp);
+}.banner-product .prod4 {
+  background-image: url(../img/home-programs-img4.webp);
+}
+.banner-product .prod1,
+.banner-product .prod2,
+.banner-product .prod3,
+.banner-product .prod4 {
+  height: 400px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner {
+  background-color: #a291fa;
+  margin-top: 50px;
+  background-image: url(https://assets.pharmeasy.in/web-assets/dist/f5c40209.svg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  min-height: 94px;
+  border-radius: 6px;
+  background-size: cover;
+}
+
+.banner .design {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.banner .logo img {
+  height: 100px;
+}
+
+.banner .man img {
+  height: 136px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.banner .text p {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  min-width: 500px;
+  color: white;
+  font-weight: 500;
+}
+
+.system-card {
+  margin-top: 70px;
+}
+
+.system-card h3 {
+  font-weight: 700;
+  margin-top: 15px;
+  font-size: 2rem;
+}
+
+.system-card p {
+  font-weight: 500;
+}
+
+.system-card .col-md-3 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* featured product */
+
+.featured-product .heading span {
+  color: darkorange;
+}
+
+.featured-product .product {
+  width: 260px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.featured-product .product .img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.featured-product .product img {
+  width: auto;
+  height: 200px;
+}
+
+.featured-product .cart-btn,
+.featured-product .whishlist-btn {
+  background: #dfdfdf;
+  padding: 5px 8px;
+  font-size: 13px;
+  color: #444;
+}
+
+.featured-product .cart-btn:hover,
+.featured-product .whishlist-btn:hover {
+  background: #3bb896;
+  color: #fff;
+}
+
+.featured-product .img {
+  overflow: hidden;
+}
+
+.featured-product .heading {
+  font-weight: 800 !important;
+}
+
+.offers .card {
+  height: 200px;
+}
+
+.offers .card .card-footer {
+  background-color: transparent !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-group .active {
+  background-color: black !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.list-group .active a {
+  color: white !important;
+}
+
+.list-group a {
+  color: black !important;
+}
+
+.twitter {
+  border-color: #1da1f2 !important;
+  color: #1da1f2 !important;
+}
+
+.whatsapp {
+  border-color: #25d366 !important;
+  color: #25d366 !important;
+}
+
+.btn-compare:hover a {
+  color: white;
+}
+
+.whatsapp-this a {
+  color: #3bb896;
+}
+
+.whatsapp-this a:hover {
+  text-decoration: none;
+  background-color: #3bb896;
+  color: white !important;
+}

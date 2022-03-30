@@ -1,0 +1,35 @@
+{% extends 'incFiles/basic.html' %} {% load static %} {% block title %}Shop{% endblock title %} {% block body %}
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb container">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Shop</li>
+  </ol>
+</nav>
+
+<div class="container shop-page">
+  <div class="row my-4">
+    {% for i in prod %}
+    <div class="col-md-3 mb-4">
+      <div class="border rounded product p-1">
+        <div class="img">
+          <img src="media/{{i.images1}}" alt="" />
+        </div>
+        <div class="container">
+          <a
+            href="/single_product/{{i.id}}"
+            class="text-dark text-decoration-none"
+            ><p class="font-weight-bold m-0 mb-2">{{i.title}}</p>
+          </a>
+          <div
+            class="container d-flex justify-content-between p-0 align-items-center"
+          >
+            <p class="h5 font-weight-bold">₹ {{i.price}}</p>
+          </div>
+          <p style="font-size: 0.8rem">{{i.desc}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

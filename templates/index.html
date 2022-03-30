@@ -1,0 +1,85 @@
+{% extends 'incFiles/basic.html' %} {% load static %}
+ {% block title %}Home {% endblock title %} {% block body %}
+<div class="owl-carousel owl-theme">
+  <div class="item">
+    <img src="{% static 'img/banner1.jpeg' %}" alt="" />
+  </div>
+  <div class="item">
+    <img src="{% static 'img/banner2.jpeg' %}" alt="" />
+  </div>
+  <div class="item">
+    <img src="{% static 'img/banner3.jpeg' %}" alt="" />
+  </div>
+</div>
+
+<div class="container-fluid main-padding banner-product">
+  <div class="row">
+    <div class="col-sm-3 d-flex justify-content-center align-items-center">
+      <div class="card prod1" style="width: 18rem">
+        <h5 class="card-title font-weight-bold text-white text-uppercase">
+          Basic Crossfit
+        </h5>
+      </div>
+    </div>
+    <div class="col-sm-3 d-flex justify-content-center align-items-center">
+      <div class="card prod2" style="width: 18rem">
+        <h5 class="card-title font-weight-bold text-white text-uppercase">
+          Fitness Studio
+        </h5>
+      </div>
+    </div>
+    <div class="col-sm-3 d-flex justify-content-center align-items-center">
+      <div class="card prod3" style="width: 18rem">
+        <h5 class="card-title font-weight-bold text-white text-uppercase">
+          Yoga Classes
+        </h5>
+      </div>
+    </div>
+    <div class="col-sm-3 d-flex justify-content-center align-items-center">
+      <div class="card prod4" style="width: 18rem">
+        <h5 class="card-title font-weight-bold text-white text-uppercase">
+          Personal Training
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid main-padding featured-product my-5">
+  <div class="d-flex justify-content-between">
+    <p class="heading h4 font-weight-bold">
+      <span class="">Featured</span> Products
+    </p>
+    <a href="/shop" class="text-dark text-decoration-none">
+      <p class="font-weight-bold" style="font-size: 0.8rem">
+        Load More <i class="fas fa-arrow-right"></i>
+      </p>
+    </a>
+  </div>
+  <hr />
+  <div class="row">
+    {% for i in prod %}
+    <div class="col mb-4">
+      <div class="border rounded product p-1">
+        <div class="img">
+          <img src="media/{{i.images1}}" alt="" />
+        </div>
+        <div class="container">
+          <a
+            href="/single_product/{{i.id}}"
+            class="text-dark text-decoration-none"
+            ><p class="font-weight-bold m-0 mb-2">{{i.title}}</p>
+          </a>
+          <div
+            class="container d-flex justify-content-between p-0 align-items-center"
+          >
+            <p class="h5 font-weight-bold">₹ {{i.price}}</p>
+          </div>
+          <p style="font-size: .8rem;">{{i.desc}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}

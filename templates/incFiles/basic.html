@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+       <head>
+              <meta charset="UTF-8" />
+              <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+              <title>{% block title %}{% endblock title %} | Pro Fitness</title>
+
+              <!-- jQuery File -->
+              <script src="{% static 'jquery-3.5.1.min.js' %}"></script>
+
+              <link rel="shortcut icon" href="{% static 'img/pharma_logo.png' %}" type="image/x-icon" />
+
+              <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+
+              <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}" />
+              <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.min.css' %}" />
+
+              <!-- custom css -->
+              <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+              <link rel="stylesheet" href="{% static 'css/shop.css' %}" />
+              <link rel="stylesheet" href="{% static 'css/single_product.css' %}" />
+
+              <!-- Font Awesome -->
+              <link rel="stylesheet" href="{% static 'font-awesome/css/all.css' %}" />
+
+              <!-- Data Table -->
+              <link rel="stylesheet" href="{% static 'data-tables/data-table.css' %}" />
+       </head>
+
+       <body>
+
+              <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+                     <a class="navbar-brand font-weight-bold text-white" href="/">Pro Fitness</a>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                     </button>
+
+                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                   <li class="nav-item mx-2">
+                                          <a class="nav-link text-white font-weight-bold {% if "home" in request.path %}text-warning{% endif %}"
+                                                 href="/home">Home &nbsp; <i style="font-size: 1rem;"
+                                                        class="far fa-home"></i></a>
+                                   </li>
+                                   <li class="nav-item mx-2">
+                                          <a class="nav-link text-white font-weight-bold {% if "shop" in request.path %}text-warning{% endif %}"
+                                                 href="/shop">Shop &nbsp; <i style="font-size: 1rem;"
+                                                        class="fad fa-dumbbell"></i></a>
+                                   </li>
+                                   <li class="nav-item mx-2">
+                                          <a class="nav-link text-white font-weight-bold {% if "my_wishlist" in request.path %}text-warning{% endif %}"
+                                                 href="/my_wishlist">Wishlist &nbsp;<i style="font-size: 1rem;"
+                                                        class="far fa-heart"></i></a>
+                                   </li>
+                                   <li class="nav-item mx-2">
+                                          <a class="nav-link text-white font-weight-bold {% if "cart" in request.path %}text-warning{% endif %}"
+                                                 href="/cart">Cart &nbsp;<i style="font-size: 1rem;"
+                                                        class="far fa-cart-plus"></i></a>
+                                   </li>
+
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
+                                   <form class="form-inline searchForm">
+                                          <input class="form-control" type="search" placeholder="Search"
+                                                 aria-label="Search">
+                                          <button class="btn" type="submit"><i class="far fa-search"></i></button>
+                                   </form>
+                                   {% if user.is_authenticated %}
+                                   <li class="nav-item dropdown">
+                                          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                                                 data-toggle="dropdown" aria-expanded="false">
+                                                 <i class="fas fa-user-circle"></i>
+                                                 {{user.first_name}} {{user.last_name}}
+                                          </a>
+                                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                 <a class="dropdown-item" href="/my_account">My Account</a>
+                                                 <div class="dropdown-divider"></div>
+                                                 <a class="dropdown-item" href="/logout">Logout</a>
+                                          </div>
+                                   </li>
+                                   {% else %}
+                                   <li class="nav-item mx-2">
+                                          <a class="nav-link" href="/my_account"><i style="font-size: 1rem;color:white"
+                                                        class="far fa-user-circle"></i></a>
+                                   </li>
+
+                                   {% endif %}
+                            </ul>
+                     </div>
+              </nav>
+
+
+              {% block body %}{% endblock body %}
+
+              <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+              <!-- owl carousel -->
+              <script src="{% static 'owl-carousel/owl.carousel.min.js' %}"></script>
+              <script src="{% static 'owl-carousel/owl.carousel.js' %}"></script>
+              <script src="{% static 'js/owl-carousel.js' %}"></script>
+
+              <script src="{% static 'data-tables/data-table.js' %}"></script>
+
+              <script src="{% static 'js/main.js' %}"></script>
+
+       </body>
+
+</html>

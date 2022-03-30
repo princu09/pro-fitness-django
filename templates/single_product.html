@@ -1,0 +1,77 @@
+{% extends 'incFiles/basic.html' %}
+
+{% load static %}
+
+{% block body %}
+<div class="container single-product border-bottom pb-5">
+    <nav aria-label="breadcrumb m-0 p-0">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/shop">Shop</a></li>
+            <li class="breadcrumb-item"><a href="/">{{prod.categories}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{prod.title}}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-6 pt-3 border d-flex justify-content-center align-items-center product"
+            style="width: 635px; height:635px;border-radius:5px">
+            <div class="main-img-prod d-flex flex-column justify-content-center align-items-center">
+                <div class="image-gallery-big">
+                    <img id="imageBox" src="/media/{{prod.images1}}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 pl-4">
+            <p class="h4 font-weight-bold">
+                {{prod.title}}
+            </p>
+            <p class="star t-12">
+                <p class="rating">{{prod.rating}}</p>
+            </p>
+            <p class="t-18 font-weight-bold text-warning">₹ {{prod.price}} /-</p>
+            <p class=" text-secondary">{{prod.shortDesc}}</p>
+            
+            {% if user.is_authenticated %}
+            <div class="container m-0 p-0 d-flex">
+                <input class="itemLen" type="number" value="0" min="0" name="" id=""
+                    style="max-width:50px;text-align:center">
+
+                <button class="ml-4 btn prod-btn btn-cart" data-product="{{prod.id}}"><i
+                        class="far fa-shopping-cart"></i> Add to
+                    Cart</button>
+
+                {% if prod.id in orders_id %}
+                <button class="btn prod-btn btn-whishlist whishlist-btn" disabled><i class="far fa-heart"></i> Already
+                    in Wishlist</button>
+                {% else %}
+                <button class=" btn prod-btn btn-whishlist whishlist-btn" data-product="{{prod.id}}"><i
+                        class="far fa-heart"></i> Wishlist</button>
+                {% endif %}
+            </div>
+            {% else %}
+            <div class="container m-0 p-0 d-flex">
+                <button class="btn prod-btn btn-cart" data-product="{{prod.id}}" disabled><i
+                        class="far fa-shopping-cart"></i> Add to
+                    Cart</button>
+
+                <button disabled class="btn prod-btn btn-whishlist whishlist-btn" data-product="{{prod.id}}"><i
+                        class="far fa-heart"></i> Wishlist</button>
+               
+            </div>
+            {% endif %}
+            <hr>
+            <div class="data">
+                <p class="text-secondary "> <span class="text-dark font-weight-bold">Categories : </span>
+                    {{prod.categories}}</p>
+            </div>
+            <hr>
+            <p class="font-weight-bold h5">Description</p>
+            <p class="">{{prod.desc}}</p>
+            <p class="font-weight-bold h5">Usage</p>
+            <p class="">{{prod.usage}}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

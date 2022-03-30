@@ -1,0 +1,45 @@
+{% extends 'incFiles/basic.html' %}
+{% load static %}
+
+{% block title %}Orders{% endblock title %}
+
+{% block body %}
+<nav aria-label="breadcrumb">
+       <ol class="breadcrumb container">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">My Orders</li>
+       </ol>
+</nav>
+
+<div class="container">
+       <p class="h4 mb-5 font-weight-bold">My Ordered Items :</p>
+
+       <table id="table_id" class="display text-center">
+              <thead>
+                     <tr>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                            <th>Medical</th>
+                     </tr>
+              </thead>
+              <tbody>
+                     {% for i in orders %}
+                     <tr>
+                            <td>{{i.order_id}}</td>
+                            <td>{{i.created_time}}</td>
+                            <td>{{i.grandTotal}}</td>
+                            <td>{{i.medical}}</td>
+                     </tr>
+                     {% endfor %}
+              </tbody>
+       </table>
+</div>
+
+<script>
+       $(document).ready(function () {
+              $('#table_id').DataTable();
+       });
+</script>
+
+{% endblock %}
