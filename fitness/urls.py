@@ -41,5 +41,8 @@ urlpatterns = [
     path('my_orders', views.my_orders, name="My Orders Page"),
     path('view_bill/<int:id>', views.view_bill, name="View Bill"),
 
+    path('handle_signup', views.handle_signup, name="Sign Up Page"),
+    path('handle_login', views.handle_login, name="Login Page"),
+    path('handle_logout', views.handle_logout, name="Logout Page"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

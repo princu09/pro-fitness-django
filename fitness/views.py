@@ -120,7 +120,6 @@ def cart(request):
     return render(request, 'cart.html', context={'orders': orders, 'totalPrice': totalPrice})
 
 
-
 def checkout(request):
     if request.method == "POST":
         order_Items = Cart.objects.filter(user=request.user)
@@ -142,7 +141,7 @@ def checkout(request):
         city = request.POST['city']
         state = request.POST['state']
         zip = request.POST['zip']
-        Order.objects.create(user=request.user, mobile=mobile , email=email, order_Items=items, price=price, itemLen=itemLen, amount=amount,
+        Order.objects.create(user=request.user, mobile=mobile, email=email, order_Items=items, price=price, itemLen=itemLen, amount=amount,
                              address1=address1, address2=address2, city=city, state=state, zip=zip)
 
         a = Cart.objects.filter(user=request.user)
@@ -194,3 +193,37 @@ def view_bill(request, id):
     data = zip(item, itemLen, price)
     return render(request, 'view_bill.html', context={'bill': bill, 'data': data})
 
+# Create Account
+def handle_signup(request):
+    if request.method == 'POST':
+        usrname = request.POST['usrname']
+        fname = request.POST['fname']
+        lname = request.POST['lname']
+        email = request.POST['email']
+        passwd = request.POST['pass']
+
+        user = User.objects.create_user(
+            username=usrname, first_name=fname, last_name=lname, email=email, password=passwd)
+        user.save()
+
+        user = authenticate(username=usrname, password=passwd)
+
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+
+    return redirect('/my_account')
+
+def handle_login(request):
+    username = request.POST['usrname']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect('/')
+    return redirect('/')
+
+
+def handle_logout(request):
+    logout(request)
+    return redirect('/')
